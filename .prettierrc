@@ -1,7 +1,18 @@
 {
-  "semi": true,
-  "singleQuote": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "importSorter.generalConfiguration.sortOnBeforeSave": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "tailwindCSS.emmetCompletions": true,
+  "printWidth": 80,
   "tabWidth": 2,
   "useTabs": false,
-  "printWidth": 80
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "endOfLine": "auto",
+  "arrowParens": "always",
+  "cSpell.words": ["APRD"]
 }

@@ -2,6 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+*:not([class^="antd"]) {
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  line-height: normal;
+}
+
+input:not([class^="antd"]),
+select:not([class^="antd"]),
+optgroup:not([class^="antd"]),
+textarea:not([class^="antd"]) {
+  line-height: normal;
+}
+
+p:not([class^="antd"]),
+h1:not([class^="antd"]),
+h2:not([class^="antd"]),
+h3:not([class^="antd"]),
+h4:not([class^="antd"]),
+h5:not([class^="antd"]),
+h6:not([class^="antd"]) {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+button:not([class^="antd"]) {
+  appearance: button;
+  text-rendering: auto;
+  text-shadow: none;
+  display: inline-block;
+  align-items: flex-start;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;

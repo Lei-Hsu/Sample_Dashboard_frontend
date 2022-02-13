@@ -1,6 +1,6 @@
 import { all, fork } from "redux-saga/effects";
-import * as testSaga from "@Redux/sagas/testSaga";
+import * as accountSaga from "@Redux/sagas/account/accountSaga";
 
 export function* rootSaga() {
-  yield all([...Object.values(testSaga)].map(fork));
+  yield all([...Object.values(accountSaga)].map(fork));
 }

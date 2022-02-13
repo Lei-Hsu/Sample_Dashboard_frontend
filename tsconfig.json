@@ -16,6 +16,7 @@
     "incremental": true,
     "baseUrl": "src",
     "paths": {
+      "@Style/*": ["styles/*"],
       "@Redux/*": ["redux/*"],
       "@Hooks/*": ["hooks/*"],
       "@Pages/*": ["pages/*"],
