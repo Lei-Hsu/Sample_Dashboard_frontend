@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
+import Cookies from 'js-cookie';
 
 import { Input, Checkbox, Button } from 'antd';
 
@@ -15,14 +16,20 @@ const TEXT = {
 const Login = () => {
   const dispatch = useAppDispatch();
 
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
+  const tempAccount = Cookies.get('account');
+  const tempPassword = Cookies.get('password');
+  const tempRemember = Cookies.get('isRemember') === 'true';
+
+  const [isRemember, setIsRemember] = useState<boolean>(tempRemember);
+  const [email, setEmail] = useState<string>(tempAccount);
+  const [password, setPassword] = useState<string>(tempPassword);
 
   const handleSubmit = () => {
     dispatch(
       login({
-        email: emailRef.current,
-        password: passwordRef.current,
+        email,
+        password,
+        isRemember,
       }),
     );
   };
@@ -39,9 +46,9 @@ const Login = () => {
               Email<span className="text-red-200">*</span>
             </p>
             <Input
-              ref={emailRef}
+              defaultValue={email}
               placeholder="Enter email"
-              onChange={(e) => (emailRef.current = e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-4 space-y-2">
@@ -49,15 +56,18 @@ const Login = () => {
               Password<span className="text-red-200">*</span>
             </p>
             <Input
-              ref={passwordRef}
-              type="password"
+              // type="password"
+              value={password}
               placeholder="Enter password"
-              onChange={(e) => (passwordRef.current = e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="mb-4 flex justify-between">
             <div className="space-x-2">
-              <Checkbox />
+              <Checkbox
+                defaultChecked={isRemember}
+                onChange={(e) => setIsRemember(e.target.checked)}
+              />
               <span>Remember me</span>
             </div>
             <div className="font-sans text-blue-500">Forget password</div>

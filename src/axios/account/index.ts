@@ -7,3 +7,7 @@ export const loginAPI = (data) => (
 export const signInAPI = (data) => (
   customAxios.post('user/signin', data)
 )
+
+export const checkAPI = () => (
+  customAxios.post('user/check')
+)
