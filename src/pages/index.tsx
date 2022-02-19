@@ -1,12 +1,11 @@
-import Head from 'next/head';
 import React from 'react';
 
 import Cookies from 'js-cookie';
+import Head from 'next/head';
 
-import { useAppSelector, useAppDispatch } from '@Hooks/hooks';
+import { useAppDispatch, useAppSelector } from '@Hooks/hooks';
 
 import Login from '@Components/account/Login';
-import { logout } from '@Redux/slices/account/accountSlice';
 
 function Home() {
   const dispatch = useAppDispatch();
@@ -22,14 +21,7 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {loginSuccess || !!token ? (
-        <div>
-          Home
-          <div onClick={() => dispatch(logout())}>logout</div>
-        </div>
-      ) : (
-        <Login />
-      )}
+      {loginSuccess || !!token ? <div>Home</div> : <Login />}
     </div>
   );
 }

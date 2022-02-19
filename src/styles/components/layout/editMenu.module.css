@@ -1,0 +1,11 @@
+.ant-menu-submenu-title {
+  width: 80%;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.ant-menu-submenu-title-item {
+  width: 90% !important;
+  text-align: left !important;
+}

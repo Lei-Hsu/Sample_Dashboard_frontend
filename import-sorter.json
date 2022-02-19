@@ -42,6 +42,10 @@
       "orderLevel": 60
     },
     {
+      "regex": "^@Components",
+      "orderLevel": 65
+    },
+    {
       "regex": "^@",
       "orderLevel": 70
     },

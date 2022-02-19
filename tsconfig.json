@@ -20,7 +20,8 @@
       "@Redux/*": ["redux/*"],
       "@Hooks/*": ["hooks/*"],
       "@Pages/*": ["pages/*"],
-      "@Components/*": ["components/*"]
+      "@Components/*": ["components/*"],
+      "@Axios/*": ["axios/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

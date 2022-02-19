@@ -6,10 +6,12 @@ import Router from 'next/router';
 
 import { useAppDispatch, useAppSelector } from '@Hooks/hooks';
 
+import { addAxiosHeader } from '@Axios/index.js';
+
+import Layout from '@Components/layout';
+
 import { checkToken } from '@Redux/slices/account/accountSlice';
 import store from '@Redux/store';
-
-import { addAxiosHeader } from '../axios/index';
 
 import 'antd/dist/antd.css';
 import '../styles/globals.css';
@@ -33,7 +35,9 @@ const RouterCheck = ({ Component }: AppProps) => {
     }
   }, [token]);
 
-  return <Component />;
+  return (
+    <>{loginSuccess ? <Layout children={<Component />} /> : <Component />}</>
+  );
 };
 
 export default function MyApp({ Component, pageProps }: AppProps) {

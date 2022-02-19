@@ -55,7 +55,8 @@ const Login = () => {
               Password<span className="text-red-200">*</span>
             </p>
             <Input
-              // type="password"
+              type="password"
+              autoComplete="new-password"
               value={password}
               placeholder="Enter password"
               onChange={(e) => setPassword(e.target.value)}
