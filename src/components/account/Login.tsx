@@ -6,7 +6,7 @@ import Cookies from 'js-cookie';
 import { useAppDispatch } from '@Hooks/hooks';
 
 import { login } from '@Redux/slices/account/accountSlice';
-import style from '@Style/components/account/login.module.css';
+import style from '@Style/components/account/login.module.scss';
 
 const TEXT = {
   companyName: 'ES Style Company',

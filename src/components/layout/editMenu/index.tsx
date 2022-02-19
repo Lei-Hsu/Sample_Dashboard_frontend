@@ -1,12 +1,13 @@
 import { useState } from 'react';
 
 import { Menu } from 'antd';
+import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 
 import { useAppSelector } from '@Hooks/hooks';
 
 import { MailOutlined } from '@ant-design/icons';
-import style from '@Style/components/layout/editMenu.module.css';
+import style from '@Style/components/layout/editMenu.module.scss';
 
 const { SubMenu } = Menu;
 
@@ -62,41 +63,44 @@ const EditMenu = () => {
   };
 
   return (
-    <Menu
-      mode="inline"
-      openKeys={openKeys}
-      onOpenChange={onOpenChange}
+    <motion.div
+      layout
       style={{
         width: openMenu ? 230 : 0,
-        height: '100vh',
       }}
     >
-      {rootMenu.map((item) => (
-        <SubMenu
-          key={item.key}
-          className={item.className}
-          style={{
-            opacity: openMenu ? 1 : 0,
-          }}
-          title={
-            <div className="flex h-full w-full items-center justify-between">
-              <div className="truncate">{item.title.content}</div>
-              <div>{item.title.icon}</div>
-            </div>
-          }
-        >
-          {item.item.map((subItem, index) => (
-            <Menu.Item
-              className={subItem.className}
-              key={index}
-              onClick={() => subItem.clickFunc()}
-            >
-              {subItem.content}
-            </Menu.Item>
-          ))}
-        </SubMenu>
-      ))}
-    </Menu>
+      <Menu
+        mode="inline"
+        openKeys={openKeys}
+        onOpenChange={onOpenChange}
+        style={{
+          height: '100vh',
+        }}
+      >
+        {rootMenu.map((item) => (
+          <SubMenu
+            key={item.key}
+            className={item.className}
+            title={
+              <div className="flex h-full w-full items-center justify-between">
+                <div className="truncate">{item.title.content}</div>
+                <div>{item.title.icon}</div>
+              </div>
+            }
+          >
+            {item.item.map((subItem, index) => (
+              <Menu.Item
+                className={subItem.className}
+                key={index}
+                onClick={() => subItem.clickFunc()}
+              >
+                {subItem.content}
+              </Menu.Item>
+            ))}
+          </SubMenu>
+        ))}
+      </Menu>
+    </motion.div>
   );
 };
 
