@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import Cookies from 'js-cookie';
 
-import { Input, Checkbox, Button } from 'antd';
+import { Button, Checkbox, Input } from 'antd';
+import Cookies from 'js-cookie';
 
 import { useAppDispatch } from '@Hooks/hooks';
 
 import { login } from '@Redux/slices/account/accountSlice';
-
 import style from '@Style/components/account/login.module.css';
 
 const TEXT = {

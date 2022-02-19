@@ -1,18 +1,20 @@
 import { useEffect } from 'react';
 import { Provider } from 'react-redux';
+
 import Cookies from 'js-cookie';
-import type { AppProps } from 'next/app';
 import Router from 'next/router';
 
+import { useAppDispatch, useAppSelector } from '@Hooks/hooks';
+
+import { checkToken } from '@Redux/slices/account/accountSlice';
 import store from '@Redux/store';
-import { useAppSelector, useAppDispatch } from '@Hooks/hooks';
 
 import { addAxiosHeader } from '../axios/index';
 
-import { checkToken } from '@Redux/slices/account/accountSlice';
-
-import '../styles/globals.css';
 import 'antd/dist/antd.css';
+import '../styles/globals.css';
+
+import type { AppProps } from 'next/app';
 
 const RouterCheck = ({ Component }: AppProps) => {
   const dispatch = useAppDispatch();

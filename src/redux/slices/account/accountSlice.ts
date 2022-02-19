@@ -1,9 +1,9 @@
-import { addAxiosHeader, clearAxiosHeader } from '../../../axios/index'
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { LoginType } from 'interface/I_account';
+import Cookies from 'js-cookie';
 
-import { LoginType } from 'interface/I_account'
-import Cookies from 'js-cookie'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { addAxiosHeader, clearAxiosHeader } from '../../../axios/index';
 
 export interface accountState {
   value: {
