@@ -21,7 +21,7 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {loginSuccess || !!token ? <div>Home</div> : <Login />}
+      {loginSuccess || !!token ? <div></div> : <Login />}
     </div>
   );
 }

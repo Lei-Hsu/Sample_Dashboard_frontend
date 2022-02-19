@@ -1,20 +1,22 @@
 import { useState } from 'react';
 
-import { Divider, Menu } from 'antd';
+import { Menu } from 'antd';
 import { useRouter } from 'next/router';
 
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { useAppSelector } from '@Hooks/hooks';
+
+import { MailOutlined } from '@ant-design/icons';
 import style from '@Style/components/layout/editMenu.module.css';
 
 const { SubMenu } = Menu;
 
 const EditMenu = () => {
   const router = useRouter();
+  const { openMenu } = useAppSelector((state) => state.common.value);
   const [openKeys, setOpenKeys] = useState(['sub1']);
 
   // submenu keys of first level
   const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
-
   // Menu array
   const rootMenu = [
     {
@@ -64,12 +66,18 @@ const EditMenu = () => {
       mode="inline"
       openKeys={openKeys}
       onOpenChange={onOpenChange}
-      style={{ width: 230, height: '100vh' }}
+      style={{
+        width: openMenu ? 230 : 0,
+        height: '100vh',
+      }}
     >
       {rootMenu.map((item) => (
         <SubMenu
           key={item.key}
           className={item.className}
+          style={{
+            opacity: openMenu ? 1 : 0,
+          }}
           title={
             <div className="flex h-full w-full items-center justify-between">
               <div className="truncate">{item.title.content}</div>
