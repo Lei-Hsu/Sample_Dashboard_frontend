@@ -14,14 +14,15 @@ function Home() {
 
   const token = Cookies.get('accessToken');
 
+  if (!loginSuccess || !token) return <Login />;
+
   return (
     <div className="">
       <Head>
         <title>CMS</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      {loginSuccess || !!token ? <div></div> : <Login />}
+      dashboard
     </div>
   );
 }

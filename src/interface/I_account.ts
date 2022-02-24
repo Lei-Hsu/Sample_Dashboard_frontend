@@ -10,3 +10,8 @@ export interface UserResponse {
   JWTToken: string,
   email: string,
 }
+
+export interface SignInType {
+  email: string,
+  password: string
+}

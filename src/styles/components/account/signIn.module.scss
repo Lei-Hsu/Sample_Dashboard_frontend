@@ -1,0 +1,19 @@
+.login-section {
+  @apply h-full w-full;
+}
+
+.ant-btn {
+  @apply w-full bg-blue-500 p-2 text-white hover:bg-blue-600 hover:text-white focus:bg-blue-500 focus:text-white;
+}
+
+.ant-checkbox-checked {
+  @apply bg-blue-500;
+}
+
+.ant-input {
+  padding: 5px;
+}
+
+.ant-input ::placeholder {
+  padding: 5px;
+}

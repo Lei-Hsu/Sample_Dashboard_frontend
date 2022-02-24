@@ -91,10 +91,11 @@ export const accountSlice = createSlice({
         },
         loginSuccess: false
       }
-    }
+    },
+    setSignIn: (_state, action: PayloadAction<{ email: string, password: string }>) => { }
   },
 })
 
-export const { login, setProfile, setLoading, setLoginSuccess, checkToken, logout } = accountSlice.actions
+export const { login, setProfile, setLoading, setLoginSuccess, checkToken, logout, setSignIn } = accountSlice.actions
 
 export default accountSlice.reducer

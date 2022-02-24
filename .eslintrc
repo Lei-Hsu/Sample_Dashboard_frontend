@@ -25,7 +25,13 @@
     "@typescript-eslint",
     "react-hooks",
     "jsx-a11y",
-    "import"
+    "import",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended",
+    "airbnb",
+    "prettier",
+    "next"
   ],
   "rules": {
     "ident": "off",

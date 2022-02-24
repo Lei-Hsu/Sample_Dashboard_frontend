@@ -1,16 +1,26 @@
 
-import { call, put, takeLatest } from "@redux-saga/core/effects";
-import { PayloadAction } from "@reduxjs/toolkit";
+import { checkAPI, loginAPI, signInAPI } from 'axios/account';
+import { calcAxisDelta } from 'framer-motion/types/projection/geometry/delta-calc';
+import { LoginType, SignInType, UserResponse } from 'interface/I_account';
+import { takeEvery } from 'redux-saga/effects';
 
-import { checkAPI, loginAPI } from "axios/account";
-import { login, setProfile, setLoading, setLoginSuccess, checkToken, logout } from "@Redux/slices/account/accountSlice";
-import { LoginType, UserResponse } from "interface/I_account";
-import { takeEvery } from "redux-saga/effects";
+import { call, put, takeLatest } from '@redux-saga/core/effects';
+import {
+  checkToken,
+  login,
+  logout,
+  setLoading,
+  setLoginSuccess,
+  setProfile,
+  setSignIn
+} from '@Redux/slices/account/accountSlice';
+import { PayloadAction } from '@reduxjs/toolkit';
 
 interface Response<T> {
   data: {
     data: T,
-    status: 'success' | 'fail'
+    status: 'success' | 'fail',
+    message?: string
   }
 }
 
@@ -60,6 +70,19 @@ function* handleCheck() {
   }
 }
 
+function* handleSignIn(action: PayloadAction<SignInType>) {
+  const data = action.payload
+  try {
+    const res = yield call(signInAPI, data)
+    const { status } = res.data
+    if (status === 'success') {
+      // 跳轉回去
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 // watcher
 export function* watchLogin() {
   yield takeLatest(login.type, handleLogin)
@@ -67,4 +90,8 @@ export function* watchLogin() {
 
 export function* watchCheck() {
   yield takeEvery(checkToken.type, handleCheck)
+}
+
+export function* watchSignIn() {
+  yield takeLatest(setSignIn.type, handleSignIn)
 }

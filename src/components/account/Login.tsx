@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { Button, Checkbox, Input } from 'antd';
 import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
 
 import { useAppDispatch } from '@Hooks/hooks';
 
@@ -14,6 +15,7 @@ const TEXT = {
 
 const Login = () => {
   const dispatch = useAppDispatch();
+  const router = useRouter();
 
   const tempAccount = Cookies.get('account');
   const tempPassword = Cookies.get('password');
@@ -36,7 +38,8 @@ const Login = () => {
   return (
     <div className="h-screen w-screen">
       <section className="flex h-full w-full flex-col items-center justify-center">
-        <div className="">
+        <div className="w-[400px]">
+          {/* <div className="min-w-[350px] max-w-[500px]"> */}
           <div className="mb-5">
             <h2 className="text-2xl font-bold">{`Welcome to ${TEXT.companyName} CMS`}</h2>
           </div>
@@ -45,6 +48,7 @@ const Login = () => {
               Email<span className="text-red-200">*</span>
             </p>
             <Input
+              className={style['ant-input']}
               defaultValue={email}
               placeholder="Enter email"
               onChange={(e) => setEmail(e.target.value)}
@@ -55,6 +59,7 @@ const Login = () => {
               Password<span className="text-red-200">*</span>
             </p>
             <Input
+              className={style['ant-input']}
               type="password"
               autoComplete="new-password"
               value={password}
@@ -72,9 +77,15 @@ const Login = () => {
             </div>
             <div className="font-sans text-blue-500">Forget password</div>
           </div>
-          <div>
+          <div className="space-y-2">
             <Button className={style['ant-btn']} onClick={handleSubmit}>
               Login
+            </Button>
+            <Button
+              className={style['ant-btn']}
+              onClick={() => router.push('/signIn')}
+            >
+              Sign In
             </Button>
           </div>
         </div>
